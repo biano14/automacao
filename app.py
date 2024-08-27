@@ -3,6 +3,7 @@
 import pyautogui as auto
 auto.PAUSE = 0.3                                  
 
+
 auto.press('win') # abre o menu iniciar
 auto.write('chrome') # digita a palavra "chrome"
 auto.press('enter') # aperta "Enter"
