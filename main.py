@@ -1,25 +1,35 @@
-# escolher diretorio comando: cxfreeze app.py --target-dir autoteste
+# importa bibliotecas
 import pyautogui as auto
 import time
-import os
 
-auto.PAUSE = 0.5
+# Input de dados
+repo = input('Informe o link do seu repositorio: ')
+commit = input('Escreva seu commit: ')
 
-# Abre o navegador e acessa o GitHub
+auto.PAUSE = 1
+
 auto.press('win')
-auto.write('chrome')
+auto.write('vscode')
 auto.press('enter')
-time.sleep(2)  # Espera o navegador abrir
-auto.write('github.com')
-auto.press('enter')
-time.sleep(5)  # Espera a página carregar
 
-# Navega para criar um novo repositório
-# Certifique-se de que as coordenadas estejam corretas para o botão de "+" ou "Novo repositório"
-for i in range(7):
-    auto.press('tab')
-time.sleep(2)
+time.sleep(4)
+
+auto.hotkey('ctrl', 'j')
+time.sleep(4)
+
+auto.write('git init')
 auto.press('enter')
-time.sleep(2)
-auto.press('tab')
+auto.write('git add .')
+auto.press('enter')
+auto.write(f'git commit -m "{commit}"')
+auto.press('enter')
+
+time.sleep(4)
+
+auto.write('git branch -M main')
+auto.press('enter')
+auto.write(f'git remote add origin {repo}')
+auto.press('enter')
+
+auto.write('git push -u origin main')
 auto.press('enter')
